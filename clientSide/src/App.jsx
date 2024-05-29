@@ -14,26 +14,28 @@ export default function App() {
 
 	return (
 		<>
+			<NavBar />
 			<MainView />
 			<VerseDay />
 			<AboutUs />
-			<Carousel />
+			<Panel />
 			<VerseDay />
 			<Footer />
 		</>
 	)
 }
 
-function MainView() {
-	const NavBar = () => {
-		return (
+function NavBar() {
+	return (
+		<>
 			<div className='navBar'>
-				<span>Ibapam</span>
+				<span>IBAPAM</span>
 				<div className='fieldNav'>
 					<button>Início</button>
 					<button>Sobre nós</button>
-					<button>Blog</button>
 					<button>Ministério</button>
+					<button>EBD</button>
+					<button>Blog</button>
 					<a href='#op'>
 						<button>Contato</button>
 					</a>
@@ -42,36 +44,30 @@ function MainView() {
 					<IoMenu />
 				</button>
 			</div>
-		)
-	}
-	const Banner = () => {
-		return (
-			<>
-				<div className='overBanner'>
-					<h1>Igreja Batista da Pampalona</h1>
-					<span>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry.
-					</span>
-					<button className='saibaMais'>Saiba mais</button>
-					<div className='btnCarousel'>
-						<button className='backCarousel'>
-							<FaArrowLeft />
-						</button>
-						<button className='nextCarousel'>
-							<FaArrowRight />
-						</button>
-					</div>
-				</div>
-				<div className='banner'>{/* <img src="" alt="" /> */}</div>
-			</>
-		)
-	}
+		</>
+	)
+}
 
+function MainView() {
 	return (
 		<div className='mainView'>
-			<NavBar />
-			<Banner />
+			<div className='overBanner'>
+				<h1>Igreja Batista da Pampalona</h1>
+				<span>
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry.
+				</span>
+				<button className='saibaMais'>Saiba mais</button>
+				<div className='btnCarousel'>
+					<button className='backCarousel'>
+						<FaArrowLeft />
+					</button>
+					<button className='nextCarousel'>
+						<FaArrowRight />
+					</button>
+				</div>
+			</div>
+			<div className='banner'>{/* <img src="" alt="" /> */}</div>
 		</div>
 	)
 }
@@ -86,7 +82,7 @@ function VerseDay() {
 						Ainda que eu andasse pelo vale da sombra da morte, não temeria mal
 						algum, porque tu estás comigo.
 					</p>
-					<span>Salmos 23:4</span>
+					<span>Salmos 23:4 NVI</span>
 				</div>
 			</div>
 		</>
@@ -109,15 +105,22 @@ function AboutUs() {
 	)
 }
 
-function Carousel() {
+function Panel() {
 	return (
-		<div className='carousel'>
+		<div className='panel'>
 			<span className='title'>Destaque</span>
-			<div className='card'></div>
-			<div className='card'></div>
-			<div className='card'></div>
-			<div className='card'></div>
-			<button className='verMais'></button>
+			<div className='card A'>
+				<span>Same Text</span>
+			</div>
+			<div className='card B'>
+				<span>Same Text</span>
+			</div>
+			<div className='card C'>
+				<p>Ver mais</p>
+			</div>
+			<div className='card D'>
+				<span>Same Text</span>
+			</div>
 		</div>
 	)
 }
@@ -127,9 +130,7 @@ function Footer() {
 		return (
 			<>
 				<div className='imgFooter' id='op'></div>
-				<div className='overImg'>
-					<button>Contribua para nosso ministério</button>
-				</div>
+				<div className='overImg'></div>
 			</>
 		)
 	}

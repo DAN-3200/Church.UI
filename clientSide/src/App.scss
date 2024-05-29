@@ -1,21 +1,13 @@
 // - Imports
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-// - Variables - 8 point Grid
-$nPadding: 4px;
-$nMargin: 4px;
-$nRadius: 4px;
-
-$vColor-Dark: #28282b;
-$vColor-White: #ffffff;
-$vColor-Grey: #f4f4f4;
+@import './config.scss';
 
 // - Code - camelCase
 * {
-	box-sizing: border-box;
-	font-family: 'Lato', sans-serif;
-	font-weight: bold;
+	font-family: 'Inter', sans-serif;
+	font-optical-sizing: auto;
 	font-style: normal;
+	font-weight: 400;
+	box-sizing: border-box;
 
 	button {
 		display: grid;
@@ -50,6 +42,50 @@ html {
 	}
 }
 
+.navBar {
+	background-color: $vColor-White;
+	max-width: 1336px;
+	width: 100%;
+	padding: $nPadding * 3 $nPadding * 6;
+	border-radius: $nRadius * 4;
+
+	display: grid;
+	grid-template-columns: 100px auto 100px;
+	justify-content: space-between;
+	align-items: center;
+
+	span {
+		font-size: 20px;
+		font-weight: 720;
+		color: $Neutral_100;
+	}
+	button {
+		min-width: 36px;
+		height: 36px;
+		padding: $nPadding;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		color: $Neutral_100;
+	}
+	.fieldNav {
+		display: flex;
+		justify-content: center;
+		gap: 4px;
+		button {
+			font-size: 16px;
+			font-weight: 480;
+		}
+	}
+	button#menuButton {
+		justify-self: end;
+		svg {
+			font-size: 28px;
+		}
+	}
+}
+
 .mainView {
 	background-color: $vColor-White;
 	max-width: 1336px;
@@ -59,60 +95,14 @@ html {
 	padding: $nPadding * 4;
 
 	display: grid;
-	grid-template-rows: 0.4fr 5.6fr;
-	grid-template-areas:
-		'NB'
-		'B';
+	grid-template-areas: 'B';
 	gap: 8px;
 
-	.navBar {
-		grid-area: NB;
-		padding: 0 12px;
-		display: grid;
-		grid-template-columns: 100px auto 100px;
-		justify-content: space-between;
-		align-items: center;
-
-		span {
-			font-size: 20px;
-			font-weight: bolder;
-			&::after {
-				// underLine
-				content: '';
-				width: 68px;
-				display: block;
-				height: 3.6px;
-				border-radius: $nRadius * 10;
-				background-color: #28282b;
-				border: none;
-			}
-		}
-		button {
-			min-width: 36px;
-			height: 36px;
-			padding: $nPadding;
-			background-color: transparent;
-			border: none;
-			cursor: pointer;
-			font-size: 16px;
-		}
-		.fieldNav {
-			display: flex;
-			justify-content: center;
-			gap: 4px;
-		}
-		button#menuButton {
-			justify-self: end;
-			svg {
-				font-size: 28px;
-			}
-		}
-	}
 	.overBanner {
 		grid-area: B;
 		z-index: 2;
 		padding: $nPadding * 10 $nPadding * 15;
-		// background-color: rgba(0, 0, 0, 0.507);
+		// background-color: rgba(0, 0, 0, 0.226);
 		border-radius: $nRadius * 4;
 
 		display: grid;
@@ -124,16 +114,19 @@ html {
 			font-size: 56px;
 			margin: 0;
 			align-self: end;
+			font-weight: bold;
+			line-height: 120%;
+			letter-spacing: -2%;
 		}
 		span {
-			color: rgb(204, 218, 215);
+			color: $vColor-White;
 			align-self: center;
 		}
 		button.saibaMais {
-			background-color: #f4f4f4;
+			background-color: $vColor-White;
 			max-width: 132px;
 			height: 48px;
-			border-radius: $nRadius * 10;
+			border-radius: $nRadius * 3;
 			border: none;
 			padding: 4px 20px;
 			font-weight: bolder;
@@ -150,7 +143,7 @@ html {
 			button {
 				width: 80px;
 				height: 36px;
-				border-radius: $nRadius * 10;
+				border-radius: $nRadius * 3;
 				border: none;
 				cursor: pointer;
 				&.backCarousel {
@@ -160,15 +153,16 @@ html {
 				}
 				&.nextCarousel {
 					color: royalblue;
+					background-color: $vColor-White;
 				}
 			}
 		}
 	}
 	.banner {
 		grid-area: B;
-		background-color: steelblue;
 		border-radius: $nRadius * 4;
 		overflow: hidden;
+		background-color: $vBlue;
 
 		img {
 			object-fit: cover;
@@ -188,8 +182,8 @@ html {
 	grid-template-areas: 'B';
 	.card {
 		grid-area: B;
-		background-color: royalblue;
-		border-radius: $nRadius * 6;
+		background-color: $vGreen;
+		border-radius: $nRadius * 4;
 	}
 	.overCard {
 		grid-area: B;
@@ -218,19 +212,20 @@ html {
 .aboutUs {
 	max-width: 1336px;
 	width: 100%;
-	height: 320px;
+	height: 360px;
 	padding: $nPadding * 4;
 	border-radius: $nRadius * 4;
 	background-color: $vColor-White;
 	display: grid;
 	grid-template-rows: 32px 1fr;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-areas:
-		'Span Span'
-		'W T';
+		'Span Span Span'
+		'W W T';
 	gap: 8px;
 	span.title {
 		font-size: 24px;
+		font-weight: bold;
 		align-self: center;
 		padding: $nPadding * 3;
 		color: $vColor-Dark;
@@ -242,11 +237,11 @@ html {
 		place-items: center;
 		&.A {
 			grid-area: W;
-			background-color: salmon;
+			background-color: $vRed;
 		}
 		&.B {
 			grid-area: T;
-			background-color: lightgreen;
+			background-color: $vGreen;
 		}
 		span {
 			color: white;
@@ -256,7 +251,7 @@ html {
 	}
 }
 
-.carousel {
+.panel {
 	max-width: 1336px;
 	width: 100%;
 	height: 640px;
@@ -264,12 +259,16 @@ html {
 	background-color: $vColor-White;
 	border-radius: $nRadius * 4;
 	display: grid;
-	grid-template-columns: 1.2fr 0.8fr;
-	grid-template-rows: 40px repeat(2, 240px) auto;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 40px repeat(2, 1fr);
 	gap: 8px;
+	grid-template-areas:
+		'title title title title'
+		'A A B B'
+		'A A D C';
 
-	.title {
-		grid-area: 1 / 1 / 2 / 3;
+	span.title {
+		grid-area: title;
 		align-self: center;
 		font-size: 24px;
 		font-weight: bold;
@@ -277,8 +276,36 @@ html {
 		padding: $nPadding * 3;
 	}
 	.card {
-		background-color: slateblue;
+		background-color: $vBlue;
 		border-radius: $nRadius * 4;
+		padding: $nPadding * 4;
+		display: flex;
+		cursor: pointer;
+		&.A {
+			grid-area: A;
+		}
+		&.B {
+			grid-area: B;
+			background-color: $vRed;
+		}
+		&.C {
+			overflow: hidden;
+			grid-area: C;
+			background-color: $vYellow;
+			p{
+				color: white;
+				font-weight: bolder;
+				font-size: 72px;
+			}
+		}
+		&.D {
+			grid-area: D;
+		}
+		span{
+			color: $vColor-White;
+			font-size: 28px;
+			align-self: flex-end;
+		}
 	}
 }
 
@@ -298,7 +325,7 @@ html {
 
 	.imgFooter {
 		grid-area: I;
-		background-color: royalblue;
+		background-color: $vBlue;
 		border-radius: $nRadius * 4;
 	}
 	.overImg {
@@ -306,22 +333,6 @@ html {
 		display: grid;
 		place-items: center;
 		padding: $nPadding * 6;
-		button {
-			min-width: 320px;
-			height: 60px;
-			padding: 0px $nPadding * 5;
-			color: white;
-			font-size: 20px;
-			border: 3.2px solid $vColor-Grey;
-			background: transparent;
-			border-radius: $nRadius * 10;
-			transition: 0.3s;
-			&:hover {
-				cursor: pointer;
-				transition: 0.2s;
-				transform: scale(1.08);
-			}
-		}
 	}
 	.trueFooter {
 		grid-area: F;
