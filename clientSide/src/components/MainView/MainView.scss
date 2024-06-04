@@ -1,0 +1,90 @@
+// - Imports
+@import '../config.scss';
+
+// - Code - camelCase
+div.mainView {
+	background-color: $vColor-White;
+	max-width: 1336px;
+	width: 100%;
+	height: 652px;
+	border-radius: $nRadius * 4;
+	padding: $nPadding * 4;
+	@include shadowBox;
+
+	display: grid;
+	grid-template-areas: 'B';
+	gap: 8px;
+
+	.overBanner {
+		grid-area: B;
+		z-index: 2;
+		padding: $nPadding * 10 $nPadding * 15;
+		// background-color: rgba(0, 0, 0, 0.226);
+		border-radius: $nRadius * 4;
+
+		display: grid;
+		grid-template-rows: auto 30px 64px;
+		grid-gap: 4px;
+		flex-direction: column;
+		color: white;
+		h1 {
+			font-size: 56px;
+			margin: 0;
+			align-self: end;
+			font-weight: bold;
+			line-height: 120%;
+			letter-spacing: -2%;
+		}
+		span {
+			color: $vColor-White;
+			align-self: center;
+		}
+		button.saibaMais {
+			background-color: $vColor-White;
+			max-width: 132px;
+			height: 48px;
+			border-radius: $nRadius * 3;
+			border: none;
+			padding: 4px 20px;
+			font-weight: bolder;
+			font-size: 16px;
+			color: $vColor-Dark;
+			cursor: pointer;
+			align-self: center;
+		}
+		.btnCarousel {
+			display: flex;
+			gap: 8px;
+			align-self: flex-end;
+
+			button {
+				width: 80px;
+				height: 36px;
+				border-radius: $nRadius * 3;
+				border: none;
+				cursor: pointer;
+				&.backCarousel {
+					background-color: transparent;
+					border: 3.2px solid $vColor-White;
+					color: white;
+				}
+				&.nextCarousel {
+					color: royalblue;
+					background-color: $vColor-White;
+				}
+			}
+		}
+	}
+	.banner {
+		grid-area: B;
+		border-radius: $nRadius * 4;
+		overflow: hidden;
+		background-color: $vBlue;
+
+		img {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

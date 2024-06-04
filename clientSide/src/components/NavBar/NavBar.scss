@@ -1,0 +1,48 @@
+// - Imports
+@import '../config.scss';
+
+// - Code - camelCase
+div.navBar {
+	background-color: $vColor-White;
+	max-width: 1336px;
+	width: 100%;
+	padding: $nPadding * 3 $nPadding * 6;
+	border-radius: $nRadius * 4;
+
+	display: grid;
+	grid-template-columns: 100px auto 100px;
+	justify-content: space-between;
+	align-items: center;
+	@include shadowBox;
+
+	span {
+		font-size: 20px;
+		font-weight: 720;
+		color: $vColor-Dark;
+	}
+	button {
+		min-width: 36px;
+		height: 36px;
+		padding: $nPadding;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		font-size: 16px;
+		color: $vColor-Dark;
+	}
+	.fieldNav {
+		display: flex;
+		justify-content: center;
+		gap: 4px;
+		button {
+			font-size: 16px;
+			font-weight: 480;
+		}
+	}
+	button#menuButton {
+		justify-self: end;
+		svg {
+			font-size: 28px;
+		}
+	}
+}

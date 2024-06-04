@@ -1,0 +1,42 @@
+// - Imports
+@import '../config.scss';
+
+// - Code - camelCase
+div.verseDay {
+	max-width: 1336px;
+	width: 100%;
+	background-color: $vColor-White;
+	border-radius: $nRadius * 4;
+	padding: $nPadding * 4;
+	display: grid;
+	grid-template-areas: 'B';
+	@include shadowBox;
+
+	.card {
+		grid-area: B;
+		background-color: $vGreen;
+		border-radius: $nRadius * 4;
+	}
+	.overCard {
+		grid-area: B;
+		z-index: 2;
+		padding: $nPadding * 12;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: white;
+
+		p {
+			font-size: 32px;
+			text-align: center;
+			width: 80%;
+			cursor: default;
+		}
+		span {
+			font-size: 20px;
+			color: $vColor-Grey;
+			cursor: default;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+// - Import
+@import '../config.scss';
+
+// - Code
+div.blog {
+	background-color: $vColor-White;
+	max-width: 1336px;
+	width: 100%;
+	border-radius: $nRadius * 4;
+	padding: $nPadding * 4;
+	display: grid;
+	grid-template-rows: 280px auto 440px auto 200px;
+
+	div.banner {
+		background-color: $vBlue;
+		border-radius: $nRadius * 2;
+	}
+	hr {
+		grid-area: auto;
+		height: 4px;
+		background-color: $vColor-Dark;
+	}
+	div.bodyText {
+		padding: 0px $nPadding * 10;
+		p {
+			text-align: justify;
+		}
+	}
+	div.fieldAuthor {
+	}
+}

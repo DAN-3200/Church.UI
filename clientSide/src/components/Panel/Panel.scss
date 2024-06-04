@@ -1,0 +1,62 @@
+// - Imports
+@import '../config.scss';
+
+// - Code - camelCase
+div.panel {
+	max-width: 1336px;
+	width: 100%;
+	height: 640px;
+	padding: $nPadding * 4;
+	background-color: $vColor-White;
+	border-radius: $nRadius * 4;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 40px repeat(2, 1fr);
+	gap: 8px;
+	grid-template-areas:
+		'title title title title'
+		'A A B B'
+		'A A D C';
+	@include shadowBox;
+
+	span.title {
+		grid-area: title;
+		align-self: center;
+		font-size: 24px;
+		font-weight: bold;
+		color: $vColor-Dark;
+		padding: $nPadding * 3;
+	}
+	.card {
+		background-color: $vBlue;
+		border-radius: $nRadius * 4;
+		padding: $nPadding * 4;
+		display: flex;
+		cursor: pointer;
+		&.A {
+			grid-area: A;
+		}
+		&.B {
+			grid-area: B;
+			background-color: $vRed;
+		}
+		&.C {
+			overflow: hidden;
+			grid-area: C;
+			background-color: $vYellow;
+			p {
+				color: white;
+				font-weight: bolder;
+				font-size: 72px;
+			}
+		}
+		&.D {
+			grid-area: D;
+		}
+		span {
+			color: $vColor-White;
+			font-size: 28px;
+			align-self: flex-end;
+		}
+	}
+}
